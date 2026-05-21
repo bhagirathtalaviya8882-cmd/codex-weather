@@ -17,7 +17,7 @@ A simple static weather app that shows a 5-day forecast for a PIN, ZIP, or posta
 Open this file in Chrome:
 
 ```text
-file:///Users/btalaviy/Oracle%20Work/Weather%20App/index.html
+
 ```
 
 Or open `index.html` from this folder directly in your browser.
