@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="sky-scene" aria-hidden="true">
+      <div class="sun-disc"></div>
+      <div class="cloud cloud-a"></div>
+      <div class="cloud cloud-b"></div>
+      <div class="rain-column"></div>
+    </div>
+
+    <main class="app-shell">
+      <section class="toolbar" aria-label="Forecast controls">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div>
+            <p>5 day outlook</p>
+            <h1>Weather App</h1>
+          </div>
+        </div>
+
+        <form class="search-form" id="searchForm">
+          <label class="sr-only" for="countrySelect">Country</label>
+          <select id="countrySelect" name="country" aria-label="Country">
+            <option value="in" selected>India</option>
+            <option value="us">United States</option>
+            <option value="gb">United Kingdom</option>
+            <option value="ca">Canada</option>
+            <option value="au">Australia</option>
+          </select>
+          <label class="sr-only" for="postalInput">PIN or postal code</label>
+          <input
+            id="postalInput"
+            name="postalCode"
+            type="search"
+            autocomplete="off"
+            inputmode="text"
+            placeholder="PIN or ZIP code"
+            value="110001"
+          />
+          <button type="submit">Search</button>
+          <button class="secondary-button" id="locateButton" type="button">
+            Near me
+          </button>
+        </form>
+
+        <div class="unit-switch" role="radiogroup" aria-label="Temperature unit">
+          <button class="active" type="button" data-unit="celsius">C</button>
+          <button type="button" data-unit="fahrenheit">F</button>
+        </div>
+      </section>
+
+      <section class="status-row" aria-live="polite">
+        <p id="statusText">Loading forecast...</p>
+      </section>
+
+      <section class="dashboard">
+        <article class="current-panel" id="currentPanel">
+          <div>
+            <p class="panel-kicker" id="placeName">110001 - New Delhi</p>
+            <h2 id="currentTemp">--</h2>
+            <p class="condition" id="currentCondition">Getting the sky ready</p>
+          </div>
+          <div class="current-visual" id="currentIcon" aria-hidden="true"></div>
+        </article>
+
+        <article class="detail-strip" aria-label="Current details">
+          <div>
+            <span>Feels</span>
+            <strong id="feelsLike">--</strong>
+          </div>
+          <div>
+            <span>Humidity</span>
+            <strong id="humidity">--</strong>
+          </div>
+          <div>
+            <span>Wind</span>
+            <strong id="wind">--</strong>
+          </div>
+        </article>
+
+        <article class="trend-panel">
+          <div class="panel-heading">
+            <p class="panel-kicker">Trend</p>
+            <h2>High and low</h2>
+          </div>
+          <div class="chart-wrap">
+            <svg id="tempChart" role="img" aria-label="Five day temperature trend"></svg>
+          </div>
+        </article>
+      </section>
+
+      <section class="forecast-grid" id="forecastGrid" aria-label="5 day forecast">
+      </section>
+    </main>
+  </body>
+</html>
